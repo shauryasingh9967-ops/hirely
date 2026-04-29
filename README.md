@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 💼 Hirely — Full Stack Job Portal
 > Built with React + Node.js + MongoDB | By **Shaurya Singh**
 
@@ -145,3 +146,6 @@ npm start           # opens http://localhost:3000
 ---
 
 *Made with ❤️ by Shaurya Singh*
+=======
+# hirely
+>>>>>>> ea2bff72203cb97205f6f86c57d798d8971ab70c
