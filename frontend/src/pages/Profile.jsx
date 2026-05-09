@@ -86,6 +86,15 @@ export default function Profile({ savedJobs, setSavedJobs, appliedJobs, setAppli
         .mc:hover .mc-arrow{color:var(--accent);transform:translateX(3px);}
         .ac{margin-left:auto;flex-shrink:0;padding:4px 11px;border-radius:99px;background:var(--green-bg);color:var(--green);font-size:0.72rem;font-weight:800;}
         .p-empty{text-align:center;padding:28px 0;color:var(--text3);font-size:0.875rem;}
+        @media(max-width:768px){
+          .pw{max-width:100%;padding:32px 16px 60px;}
+          .p-hero{flex-direction:column;text-align:center;padding:24px;}
+          .p-av{margin-bottom:16px;}
+          .p-stats{grid-template-columns:1fr;gap:12px;}
+          .p-sec{padding:18px;}
+          .mc{flex-direction:column;gap:10px;text-align:center;}
+          .mc-arrow{display:none;}
+        }
         @media(max-width:600px){.pw{padding:24px 16px 60px;}.p-stats{gap:10px;}}
       `}</style>
 

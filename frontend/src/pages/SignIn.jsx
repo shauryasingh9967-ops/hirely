@@ -48,6 +48,15 @@ export default function SignIn({ addToast }) {
         .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border);}
         .guest-btn{width:100%;padding:12px;border-radius:14px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);font-weight:600;font-size:0.875rem;cursor:pointer;font-family:inherit;transition:all .2s;}
         .guest-btn:hover{border-color:rgba(124,111,247,0.3);color:var(--accent2);}
+        @media(max-width:768px){
+          .auth-wrap{padding:20px 16px;}
+          .auth-card{padding:32px 24px;max-width:100%;}
+          .auth-h{font-size:1.4rem;}
+          .auth-sub{font-size:0.8rem;}
+          .f-input{padding:12px 14px;font-size:0.85rem;}
+          .auth-btn{padding:12px;font-size:0.9rem;}
+          .guest-btn{padding:10px;font-size:0.8rem;}
+        }
       `}</style>
 
       <div className="auth-wrap">

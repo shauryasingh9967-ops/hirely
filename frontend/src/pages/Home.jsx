@@ -175,6 +175,21 @@ export default function Home({ savedJobs, setSavedJobs, appliedJobs, setAppliedJ
         .errbox{text-align:center;padding:60px 24px;grid-column:1/-1;}
         .lmb{display:block;margin:0 auto;padding:13px 36px;border-radius:14px;border:1px solid var(--border2);background:var(--bg2);color:var(--text2);font-weight:600;font-size:0.875rem;cursor:pointer;transition:all .25s;font-family:inherit;}
         .lmb:hover{border-color:rgba(124,111,247,0.35);color:var(--accent2);background:rgba(124,111,247,0.06);transform:translateY(-2px);}
+        @media(max-width:768px){
+          .hw{padding:0 16px 60px;max-width:100%;}
+          .hero{padding:48px 0 36px;}
+          .hh{font-size:2rem;line-height:1.1;}
+          .hsub{font-size:0.95rem;margin-bottom:32px;}
+          .hsts{grid-template-columns:1fr;padding:16px 12px;}
+          .hst{flex-direction:column;text-align:center;padding:16px 8px;}
+          .hst:not(:last-child)::after{display:none;}
+          .sc{flex-direction:column;gap:12px;padding:16px;max-width:100%;}
+          .sf{min-width:auto;padding:10px 14px;}
+          .sb{padding:10px 20px;font-size:0.85rem;}
+          .qtabs{justify-content:center;}
+          .jg{grid-template-columns:1fr;gap:12px;}
+          .jcard{max-width:100%;width:100%;}
+        }
         @media(max-width:640px){.hw{padding:0 16px 60px;}.hero{padding:48px 0 36px;}}
       `}</style>
 

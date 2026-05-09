@@ -10,6 +10,7 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
   const navigate  = useNavigate();
   const location  = useLocation();
   const [drop, setDrop] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const badgeCount = savedCount + appliedCount;
   const isDark = theme === 'dark';
@@ -113,6 +114,20 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
         }
         .btn-gs:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(124,111,247,0.45);}
         .btn-gs:active{transform:translateY(0);}
+        .hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+        .hamburger span{width:20px;height:2px;background:var(--text);transition:0.3s;}
+        .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+        .hamburger.open span:nth-child(2){opacity:0;}
+        .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);}
+        .n-pills{flex:1;display:flex;gap:4px;justify-content:center;}
+        .n-pills.open{flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-top:none;padding:16px;gap:8px;z-index:500;}
+        @media(max-width:768px){
+          .navbar{flex-wrap:wrap;padding:0 16px;}
+          .hamburger{display:flex;}
+          .n-pills{display:none;}
+          .n-pills.open{display:flex;}
+          .n-right{display:none;}
+        }
         @media(max-width:560px){.btn-gs{display:none;}.navbar{padding:0 16px;}}
       `}</style>
 
@@ -122,10 +137,17 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
           Hirely
         </div>
 
-        <div className="n-pills">
+        {/* Hamburger Menu Button */}
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`n-pills ${menuOpen ? 'open' : ''}`}>
           {[['/', 'Browse Jobs'], ['/profile', 'My Profile']].map(([p, label]) => (
             <button key={p} className={`n-pill ${path === p ? 'on' : ''}`}
-              onClick={() => navigate(p)} style={{ position: 'relative' }}>
+              onClick={() => { navigate(p); setMenuOpen(false); }} style={{ position: 'relative' }}>
               {label}
               {p === '/profile' && badgeCount > 0 && (
                 <span className="n-badge">{badgeCount}</span>

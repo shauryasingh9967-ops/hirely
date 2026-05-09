@@ -75,6 +75,11 @@ export default function JobCard({ job, isSaved, isApplied, onSave, onClick, inde
         }
         .bm-btn svg{width:15px;height:15px;transition:transform .2s;}
         .bm-btn:hover svg{transform:scale(1.15);}
+        @media(max-width:768px){
+          .jcard{padding:20px;max-width:100%;width:100%;}
+          .jc-title{font-size:0.9rem;}
+          .jc-tag{font-size:0.68rem;}
+        }
       `}</style>
 
       <div

@@ -49,6 +49,16 @@ export default function GetStarted({ addToast }) {
         .perks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
         .perk{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);font-size:0.8rem;color:var(--text2);}
         .terms{text-align:center;font-size:0.75rem;color:var(--text3);margin-top:16px;}
+        @media(max-width:768px){
+          .gs-wrap{padding:20px 16px;}
+          .gs-card{padding:32px 24px;max-width:100%;}
+          .gs-h{font-size:1.5rem;}
+          .gs-sub{font-size:0.8rem;}
+          .perks{grid-template-columns:1fr;gap:8px;}
+          .f-input{padding:12px 14px;font-size:0.85rem;}
+          .gs-btn{padding:12px;font-size:0.9rem;}
+          .terms{font-size:0.7rem;}
+        }
       `}</style>
 
       <div className="gs-wrap">
