@@ -6,26 +6,16 @@ const router  = express.Router();
 // ── GET /api/jobs — list with filter + pagination
 router.get('/', async (req, res) => {
   try {
-    const { q, location, type, page = 1, limit = 6 } = req.query;
-    const filter = { isActive: true };
+    const jobs = await Job.find({});
+    console.log('Jobs count:', jobs.length);
+    console.log('Fetched jobs length:', jobs.length);
 
-    if (q && q.trim()) {
-      filter.$or = [
-        { title:   { $regex: q, $options: 'i' } },
-        { company: { $regex: q, $options: 'i' } },
-        { tags:    { $elemMatch: { $regex: q, $options: 'i' } } },
-      ];
-    }
-    if (location && location !== 'All Locations') filter.location = location;
-    if (type     && type     !== 'All Types')      filter.type     = type;
-
-    const total = await Job.countDocuments(filter);
-    const jobs  = await Job.find(filter)
-      .sort({ createdAt: -1 })
-      .skip((+page - 1) * +limit)
-      .limit(+limit);
-
-    res.json({ jobs, total, page: +page, pages: Math.ceil(total / +limit) });
+    res.json({
+      jobs,
+      total: jobs.length,
+      page: 1,
+      pages: 1,
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
