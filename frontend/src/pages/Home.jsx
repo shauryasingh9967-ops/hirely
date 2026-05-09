@@ -159,14 +159,15 @@ export default function Home({ savedJobs, setSavedJobs, appliedJobs, setAppliedJ
         .sc{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-xl);padding:10px;box-shadow:var(--shadow-lg),var(--glow);display:flex;flex-wrap:wrap;gap:8px;transition:border-color .3s,box-shadow .3s;animation:fadeUp .65s .4s ease both;max-width:860px;margin:0 auto;width:100%;max-width:100%;overflow-x:hidden;}
         .sc:focus-within{border-color:rgba(124,111,247,0.35);box-shadow:var(--shadow-lg),0 0 0 4px rgba(124,111,247,0.08);}
         .sf{flex:1;min-width:200px;display:flex;align-items:center;gap:12px;background:var(--bg3);border-radius:28px;padding:12px 18px;width:100%;max-width:100%;overflow-x:hidden;}
-        .si{flex:1;border:none;background:transparent;color:var(--text);font-size:0.925rem;outline:none;font-family:inherit;width:100%;max-width:100%;overflow-x:hidden;}
+        .si{flex:1;border:none;background:transparent;color:var(--text);font-size:0.925rem;outline:none;font-family:inherit;width:100%;max-width:100%;overflow-x:hidden;min-width:0;}
         .si::placeholder{color:var(--text3);}
         .ss{background:var(--bg3);border:none;border-radius:28px;padding:12px 18px;color:var(--text2);font-size:0.875rem;font-weight:500;outline:none;cursor:pointer;font-family:inherit;transition:background .2s;width:100%;max-width:100%;overflow-x:hidden;}
         .ss:hover{background:var(--bg4);}
-        .sb{padding:12px 28px;border-radius:28px;border:none;background:linear-gradient(135deg,var(--accent) 0%,var(--accent3) 100%);color:#fff;font-weight:700;font-size:0.875rem;cursor:pointer;box-shadow:0 4px 20px rgba(124,111,247,0.35);transition:all .25s;font-family:inherit;white-space:nowrap;width:100%;max-width:100%;overflow-x:hidden;}
+        .sb{padding:12px 28px;border-radius:28px;border:none;background:linear-gradient(135deg,var(--accent) 0%,var(--accent3) 100%);color:#fff;font-weight:700;font-size:0.875rem;cursor:pointer;box-shadow:0 4px 20px rgba(124,111,247,0.35);transition:all .25s;font-family:inherit;white-space:nowrap;width:100%;max-width:100%;overflow-x:hidden;flex-shrink:0;}
         .sb:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(124,111,247,0.45);}
-        .qtabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 18px;animation:fadeIn .5s .5s ease both;width:100%;max-width:100%;overflow-x:hidden;}
-        .qt{padding:8px 18px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text3);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:0.02em;font-family:inherit;width:100%;max-width:100%;overflow-x:hidden;}
+        .qtabs{display:flex;gap:8px;flex-wrap:nowrap;margin:26px 0 18px;animation:fadeIn .5s .5s ease both;width:100%;max-width:100%;overflow-x:auto;overflow-y:hidden;padding-bottom:6px;scrollbar-width:none;-ms-overflow-style:none;}
+        .qtabs::-webkit-scrollbar{display:none;}
+        .qt{padding:8px 18px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--text3);font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:0.02em;font-family:inherit;white-space:nowrap;flex-shrink:0;}
         .qt:hover{border-color:var(--border2);color:var(--text2);}
         .qt.on{background:rgba(124,111,247,0.1);border-color:rgba(124,111,247,0.3);color:var(--accent2);}
         .jg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:32px;width:100%;max-width:100%;overflow-x:hidden;}
@@ -184,9 +185,11 @@ export default function Home({ savedJobs, setSavedJobs, appliedJobs, setAppliedJ
           .hst{flex-direction:column;text-align:center;padding:16px 8px;}
           .hst:not(:last-child)::after{display:none;}
           .sc{flex-direction:column;gap:12px;padding:16px;max-width:100%;}
-          .sf{min-width:auto;padding:10px 14px;}
-          .sb{padding:10px 20px;font-size:0.85rem;}
-          .qtabs{justify-content:center;}
+          .sf{min-width:auto;padding:12px 14px;margin-bottom:4px;}
+          .si{min-width:0;}
+          .ss{padding:12px 14px;font-size:0.8rem;}
+          .sb{padding:12px 16px;font-size:0.8rem;flex-shrink:0;}
+          .qtabs{gap:6px;padding:16px 0;margin:16px 0;}
           .jg{grid-template-columns:1fr;gap:12px;}
           .jcard{max-width:100%;width:100%;}
         }

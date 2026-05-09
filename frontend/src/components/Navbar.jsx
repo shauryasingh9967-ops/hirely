@@ -115,18 +115,29 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
         }
         .btn-gs:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(124,111,247,0.45);}
         .btn-gs:active{transform:translateY(0);}
-        .hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;}
+        .hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:8px;z-index:501;}
         .hamburger span{width:20px;height:2px;background:var(--text);transition:0.3s;}
         .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
         .hamburger.open span:nth-child(2){opacity:0;}
         .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);}
         .n-pills{flex:1;display:flex;gap:4px;justify-content:center;}
-        .n-pills.open{flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-top:none;padding:16px;gap:8px;z-index:500;}
+        .m-menu{display:none;position:absolute;top:68px;left:0;right:0;background:var(--bg2);border-bottom:1px solid var(--border);padding:16px;gap:12px;flex-direction:column;z-index:500;animation:slideDown .3s ease;box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+        @keyframes slideDown {from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+        .m-menu.open{display:flex;}
+        .m-pills{display:flex;gap:8px;flex-direction:column;}
+        .m-pill{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:transparent;color:var(--text2);font-size:0.875rem;font-weight:500;cursor:pointer;transition:all .2s;text-align:left;font-family:inherit;}
+        .m-pill:hover{background:rgba(124,111,247,0.08);color:var(--text);border-color:rgba(124,111,247,0.3);}
+        .m-pill.on{background:rgba(124,111,247,0.1);color:var(--accent2);border-color:rgba(124,111,247,0.3);font-weight:700;}
+        .m-divider{height:1px;background:var(--border);margin:4px 0;}
+        .m-bottom{display:flex;gap:8px;justify-content:space-between;align-items:center;}
+        .m-theme{width:40px;height:40px;border-radius:12px;border:1px solid var(--border2);background:var(--bg3);color:var(--text2);display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;transition:all .2s;flex-shrink:0;}
+        .m-theme:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.06);}
+        .m-auth{display:flex;gap:8px;flex:1;}
         @media(max-width:768px){
-          .navbar{flex-wrap:wrap;padding:0 16px;width:100%;max-width:100%;overflow-x:hidden;justify-content:space-between;}
           .hamburger{display:flex;}
           .n-pills{display:none;}
-          .n-pills.open{display:flex;}
+          .m-menu{display:none;}
+          .m-menu.open{display:flex;}
           .n-right{display:none;}
         }
         @media(max-width:560px){.btn-gs{display:none;}.navbar{padding:0 16px;}}
@@ -138,17 +149,10 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
           Hirely
         </div>
 
-        {/* Hamburger Menu Button */}
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div className={`n-pills ${menuOpen ? 'open' : ''}`}>
+        <div className="n-pills">
           {[['/', 'Browse Jobs'], ['/profile', 'My Profile']].map(([p, label]) => (
             <button key={p} className={`n-pill ${path === p ? 'on' : ''}`}
-              onClick={() => { navigate(p); setMenuOpen(false); }} style={{ position: 'relative' }}>
+              onClick={() => navigate(p)} style={{ position: 'relative' }}>
               {label}
               {p === '/profile' && badgeCount > 0 && (
                 <span className="n-badge">{badgeCount}</span>
@@ -156,6 +160,12 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
             </button>
           ))}
         </div>
+
+        <button className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
         <div className="n-right">
           <button className="theme-btn" onClick={toggleTheme}>
@@ -188,6 +198,41 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
               <button className="btn-gs" onClick={() => navigate('/get-started')}>Get Started ✦</button>
             </>
           )}
+        </div>
+
+        {/* Mobile Menu */}
+        <div className={`m-menu ${menuOpen ? 'open' : ''}`}>
+          <div className="m-pills">
+            {[['/', 'Browse Jobs'], ['/profile', 'My Profile']].map(([p, label]) => (
+              <button key={p} className={`m-pill ${path === p ? 'on' : ''}`}
+                onClick={() => { navigate(p); setMenuOpen(false); }}>
+                {label}
+                {p === '/profile' && badgeCount > 0 && (
+                  <span style={{marginLeft:'auto',background:'var(--accent)',color:'#fff',fontSize:'0.65rem',fontWeight:800,padding:'2px 6px',borderRadius:99,minWidth:'18px',textAlign:'center'}}>
+                    {badgeCount}
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
+          <div className="m-divider" />
+          <div className="m-bottom">
+            <button className="m-theme" onClick={() => { toggleTheme(); setMenuOpen(false); }}>
+              {isDark ? '☀️' : '🌙'}
+            </button>
+            <div className="m-auth">
+              {user ? (
+                <button className="d-item" style={{flex:1,margin:0,padding:'10px 12px'}} onClick={() => { logout(); setMenuOpen(false); navigate('/'); }}>
+                  🚪 Sign Out
+                </button>
+              ) : (
+                <>
+                  <button className="btn-si" style={{flex:1}} onClick={() => { navigate('/signin'); setMenuOpen(false); }}>Sign In</button>
+                  <button className="btn-gs" style={{flex:1}} onClick={() => { navigate('/get-started'); setMenuOpen(false); }}>Get Started</button>
+                </>
+              )}
+            </div>
+          </div>
         </div>
       </nav>
     </>
