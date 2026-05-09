@@ -51,29 +51,6 @@ hirely/
 
 ---
 
-## 🚀 How to Run
-
-### 1. Backend
-
-```bash
-cd hirely/backend
-npm install
-cp .env.example .env
-# → Edit .env: add your MONGO_URI from MongoDB Atlas
-node seed.js        # fills DB with 12 jobs
-npm run dev         # starts on http://localhost:5000
-```
-
-### 2. Frontend
-
-```bash
-cd hirely/frontend
-npm install
-npm start           # opens http://localhost:3000
-```
-
----
-
 ## 🌐 API Endpoints
 
 | Method | Endpoint            | Auth | What it does               |
