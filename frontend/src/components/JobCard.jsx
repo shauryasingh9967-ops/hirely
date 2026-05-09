@@ -22,6 +22,7 @@ export default function JobCard({ job, isSaved, isApplied, onSave, onClick, inde
           transition:transform .3s cubic-bezier(0.34,1.56,0.64,1),
                      border-color .3s, box-shadow .3s;
           animation:cardIn .45s ease both;
+          width:100%;max-width:100%;
         }
         .jcard:hover {
           transform:translateY(-6px);

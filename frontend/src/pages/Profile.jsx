@@ -59,8 +59,8 @@ export default function Profile({ savedJobs, setSavedJobs, appliedJobs, setAppli
   return (
     <>
       <style>{`
-        .pw{max-width:700px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:2;}
-        .p-hero{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;margin-bottom:20px;display:flex;align-items:center;gap:22px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;}
+        .pw{max-width:700px;margin:0 auto;padding:40px 24px 80px;position:relative;z-index:2;width:100%;max-width:100%;overflow-x:hidden;}
+        .p-hero{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px;margin-bottom:20px;display:flex;align-items:center;gap:22px;position:relative;overflow:hidden;animation:fadeUp .5s ease both;width:100%;max-width:100%;overflow-x:hidden;}
         .p-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,111,247,0.05) 0%,rgba(244,113,181,0.03) 100%);pointer-events:none;}
         .p-av{width:72px;height:72px;border-radius:22px;flex-shrink:0;background:linear-gradient(135deg,var(--accent) 0%,#f471b5 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.7rem;box-shadow:0 8px 24px rgba(124,111,247,0.3);position:relative;overflow:hidden;}
         .p-av::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:rgba(255,255,255,0.15);}

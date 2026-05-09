@@ -28,8 +28,8 @@ export default function SignIn({ addToast }) {
   return (
     <>
       <style>{`
-        .auth-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;z-index:2;}
-        .auth-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:40px;width:100%;max-width:440px;box-shadow:var(--shadow-lg),var(--glow);animation:fadeUp .5s ease both;}
+        .auth-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;z-index:2;width:100%;max-width:100%;overflow-x:hidden;}
+        .auth-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:40px;width:100%;max-width:440px;box-shadow:var(--shadow-lg),var(--glow);animation:fadeUp .5s ease both;width:100%;max-width:100%;overflow-x:hidden;}
         .auth-logo{display:flex;align-items:center;gap:10px;margin-bottom:28px;font-weight:800;font-size:1.25rem;letter-spacing:-0.03em;color:var(--text);}
         .auth-lm{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#f471b5);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(124,111,247,0.4);}
         .auth-h{font-size:1.6rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:6px;}

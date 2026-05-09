@@ -25,6 +25,7 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
           background:${isDark?'rgba(10,10,15,0.78)':'rgba(244,243,249,0.82)'};
           backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
           border-bottom:1px solid var(--border);transition:background .4s;
+          width:100%;max-width:100%;overflow-x:hidden;
         }
         .n-logo{
           display:flex;align-items:center;gap:11px;cursor:pointer;
@@ -122,7 +123,7 @@ export default function Navbar({ savedCount = 0, appliedCount = 0 }) {
         .n-pills{flex:1;display:flex;gap:4px;justify-content:center;}
         .n-pills.open{flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--bg2);border:1px solid var(--border);border-top:none;padding:16px;gap:8px;z-index:500;}
         @media(max-width:768px){
-          .navbar{flex-wrap:wrap;padding:0 16px;}
+          .navbar{flex-wrap:wrap;padding:0 16px;width:100%;max-width:100%;overflow-x:hidden;justify-content:space-between;}
           .hamburger{display:flex;}
           .n-pills{display:none;}
           .n-pills.open{display:flex;}

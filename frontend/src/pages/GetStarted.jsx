@@ -29,8 +29,8 @@ export default function GetStarted({ addToast }) {
   return (
     <>
       <style>{`
-        .gs-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;z-index:2;}
-        .gs-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:40px;width:100%;max-width:480px;box-shadow:var(--shadow-lg),var(--glow);animation:fadeUp .5s ease both;}
+        .gs-wrap{min-height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;z-index:2;width:100%;max-width:100%;overflow-x:hidden;}
+        .gs-card{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--r-lg);padding:40px;width:100%;max-width:480px;box-shadow:var(--shadow-lg),var(--glow);animation:fadeUp .5s ease both;width:100%;max-width:100%;overflow-x:hidden;}
         .gs-top{text-align:center;margin-bottom:32px;}
         .gs-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:99px;background:rgba(124,111,247,0.08);border:1px solid rgba(124,111,247,0.2);color:var(--accent2);font-size:0.78rem;font-weight:700;letter-spacing:0.05em;margin-bottom:18px;}
         .gs-h{font-size:1.75rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;background:linear-gradient(135deg,var(--text) 0%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
