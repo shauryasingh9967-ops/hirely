@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-# 💼 Hirely — Full Stack Job Portal
-> Built with React + Node.js + MongoDB | By **Shaurya Singh**
+# Hirely — Full Stack Job Portal
+> Built with React + Node.js + MongoDB · By **Shaurya Singh**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 hirely/
@@ -51,7 +50,7 @@ hirely/
 
 ---
 
-## 🌐 API Endpoints
+## API Endpoints
 
 | Method | Endpoint            | Auth | What it does               |
 |--------|---------------------|------|----------------------------|
@@ -69,7 +68,7 @@ hirely/
 
 ---
 
-## ✨ Features
+## Features
 
 **UI / Frontend**
 - Dark + Light mode with localStorage persistence
@@ -98,7 +97,7 @@ hirely/
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Part      | Tech                              |
 |-----------|-----------------------------------|
@@ -111,7 +110,7 @@ hirely/
 
 ---
 
-## 📸 Routes
+## Routes
 
 | URL            | Page        |
 |----------------|-------------|
@@ -122,7 +121,4 @@ hirely/
 
 ---
 
-*Made with ❤️ by Shaurya Singh*
-=======
-# hirely
->>>>>>> ea2bff72203cb97205f6f86c57d798d8971ab70c
+*Built by Shaurya Singh*
